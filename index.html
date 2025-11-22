@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inspiration — Galerie</title>
+
+  <!-- Fonts: serif titre + sans pour corps -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="brand">
+      <span class="logo">Creative<span>Studio</span></span>
+      <small class="tagline">Inspiration & élégance</small>
+    </div>
+    <nav class="nav-actions">
+      <button id="btn-explore" class="ghost">Explorer</button>
+      <button id="btn-favorites" class="ghost">Favoris</button>
+    </nav>
+  </header>
+
+  <!-- HERO (utilise ton image uploadée) -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Images choisies pour inspirer des idées élégantes</h1>
+      <p class="lead">Photos haute qualité | Palettes intégrées | Ambiance minimaliste</p>
+
+      <form id="search-form" class="search">
+        <input id="search-input" type="search" placeholder="Rechercher (ex: architecture, portrait...)" />
+        <button type="submit">Rechercher</button>
+      </form>
+
+      <div class="hero-meta">
+        <span>Populaire : </span>
+        <button class="chip">Architecture</button>
+        <button class="chip">Portrait</button>
+        <button class="chip">Nature</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY / TAGS -->
+  <main class="container">
+    <section class="moods">
+      <h2>Filtres</h2>
+      <div class="mood-row">
+        <button class="mood">Editorial</button>
+        <button class="mood">Minimaliste</button>
+        <button class="mood">Cinématographique</button>
+        <button class="mood">Lumière douce</button>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h2>Explorer</h2>
+      <div id="gallery" class="masonry"></div>
+      <div class="center">
+        <button id="load-more" class="primary-outline">Charger plus</button>
+      </div>
+    </section>
+
+    <section id="favorites" class="favorites-section hidden">
+      <h2>Mes Favoris</h2>
+      <div id="fav-grid" class="masonry"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© 2025 CreativePulse — Conçu par Steve Masengo</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
