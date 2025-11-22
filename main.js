@@ -9,19 +9,8 @@ const searchInput = document.getElementById('search-input');
 const loadMoreBtn = document.getElementById('load-more');
 
 let page = 1;
-const perPage = 9;
+const perPage = 25;
 let currentQuery = ''; // si non vide on est en mode recherche
-
-// simple mock images array (fallback si pas de clé)
-const samplePics = Array.from({length: 30}).map((_,i) => {
-  return {
-    id: `img-${i+1}`,
-    title: ['Quiet Morning','City Lines','Soft Portrait','Green Calm','Cinematic Mood'][i%5],
-    src: `https://picsum.photos/seed/${i+1}/900/600`,
-    author: `Photographe ${i+1}`,
-    palette: ['#e9e3d5','#b08968','#c8b79a','#f3efe8','#a59f95'].slice(0,5)
-  };
-});
 
 function createCard(item) {
   const div = document.createElement("div");
@@ -65,11 +54,9 @@ function toggleFavorite(item){
 
 /* Unsplash fetch + mapping */
 async function fetchFromUnsplash(page = 1, query = ''){
-  const key = window.UNSPLASH_KEY; // défini dans config.js
-  // fallback local mock si pas de clé
+  const key = window.UNSPLASH_KEY; // defini dans config.js
   if(!key){
-    const start = (page-1)*perPage;
-    return samplePics.slice(start, start+perPage);
+    throw new Error('Cle API Unsplash manquante : definissez window.UNSPLASH_KEY dans config.js');
   }
 
   const per = perPage;
@@ -81,7 +68,10 @@ async function fetchFromUnsplash(page = 1, query = ''){
   }
 
   const res = await fetch(url, {
-    headers: { Authorization: 'Client-ID ' + key }
+    headers: {
+      Authorization: 'Client-ID ' + key,
+      'Accept-Version': 'v1'
+    }
   });
 
   if(!res.ok){
@@ -170,3 +160,4 @@ searchForm?.addEventListener('submit', async (e)=> {
     gallery.innerHTML = '<p style="color:#6b7280">Erreur lors de la recherche.</p>';
   }
 });
+
