@@ -1,5 +1,4 @@
-/* Minimal White & Elegant theme */
-/* Palette */
+
 :root{
   --bg: #ffffff;
   --muted: #f6f6f7;
@@ -23,7 +22,7 @@ body{
   line-height:1.45;
 }
 
-/* NAV */
+
 .nav{
   position:fixed; top:0; left:0; right:0;
   display:flex; align-items:center; justify-content:space-between;
@@ -37,22 +36,22 @@ body{
 .logo span{color:var(--accent); margin-left:6px}
 .tagline{display:block; font-size:11px; color:var(--sub)}
 
-/* Buttons */
+
 button{font-family:inherit}
 .ghost{background:none;border:none;padding:8px 10px;cursor:pointer;color:var(--text);font-weight:600}
 .primary-outline{
   background:none;border:1px solid var(--text); padding:8px 18px;border-radius:10px;cursor:pointer;font-weight:600;
 }
 
-/* HERO */
+
 .hero{
   height:72vh;
   display:flex;align-items:center;justify-content:center;
-  /* utilise l'image uploadée localement */
+  
   background-image: url("/mnt/data/fcbfbc51-dbf8-41f5-96ea-5df70183d1e9.png");
   background-size:cover; background-position:center;
   position:relative;
-  margin-top:64px; /* nav space */
+  margin-top:64px; 
 }
 
 .hero::after{
@@ -72,7 +71,7 @@ button{font-family:inherit}
 
 .hero .lead{color:var(--sub); margin-bottom:16px}
 
-/* search */
+
 .search{
   display:flex; gap:10px; justify-content:center; align-items:center; margin-top:10px;
 }
@@ -89,18 +88,17 @@ button{font-family:inherit}
 
 .search button:active{transform:translateY(1px)}
 
-/* chips */
+
 .chip{background:transparent;border:1px solid #eee;padding:6px 12px;border-radius:999px;margin-left:8px;font-size:13px;cursor:pointer}
 
-/* container */
 .container{max-width:1180px;margin:36px auto;padding:0 20px}
 
-/* moods */
+
 .moods{margin-bottom:18px}
 .mood-row{display:flex;gap:10px;flex-wrap:wrap}
 .mood{padding:9px 14px;border-radius:10px;border:1px solid #f0f0f0;background:var(--muted);cursor:pointer}
 
-/* GALLERY masonry (simple column layout) */
+
 .masonry{
   column-count:3;
   column-gap:18px;
@@ -122,10 +120,10 @@ button{font-family:inherit}
   position:relative;
 }
 
-/* image fills card */
+
 .card img{display:block;width:100%;height:auto}
 
-/* overlay info */
+
 .card-info{
   position:absolute; left:12px; right:12px; bottom:12px;
   display:flex; justify-content:space-between; align-items:center; gap:10px;
@@ -138,22 +136,22 @@ button{font-family:inherit}
 .avatar{width:36px;height:36px;border-radius:50%;background:#ddd; display:inline-block}
 .title{font-weight:600;color:var(--text);font-size:13px}
 
-/* hover */
+
 .card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(16,24,40,0.12) }
 
-/* favorites heart */
+
 .heart{
   width:40px;height:40px;border-radius:10px;border:none;background:#fff;display:inline-grid;place-items:center;cursor:pointer;
   box-shadow:0 6px 18px rgba(16,24,40,0.06);
 }
 
-/* center */
+
 .center{text-align:center;margin:24px 0}
 
-/* footer */
+
 .footer{padding:36px 20px;text-align:center;color:var(--sub);border-top:1px solid #f3f3f4;margin-top:40px}
 
-/* hidden util */
+
 .hidden{display:none}
 .card {
   position: relative;

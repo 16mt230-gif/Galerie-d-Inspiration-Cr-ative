@@ -1,4 +1,4 @@
-// Minimal JS: mock population + favorites + search + load more
+
 const gallery = document.getElementById('gallery');
 const favGrid = document.getElementById('fav-grid');
 const favoritesSection = document.getElementById('favorites');
@@ -10,8 +10,7 @@ const loadMoreBtn = document.getElementById('load-more');
 
 let page = 1;
 const perPage = 25;
-let currentQuery = ''; // si non vide on est en mode recherche
-
+let currentQuery = ''; 
 function createCard(item) {
   const div = document.createElement("div");
   div.className = "card";
@@ -37,7 +36,6 @@ function createCard(item) {
   return div;
 }
 
-/* Favorites */
 function getFavorites(){ return JSON.parse(localStorage.getItem('cp_favs')||'[]'); }
 function saveFavorites(list){ localStorage.setItem('cp_favs', JSON.stringify(list)); }
 function isFavorited(id){ return getFavorites().some(x=>x.id===id); }
@@ -52,9 +50,8 @@ function toggleFavorite(item){
   renderFavs();
 }
 
-/* Unsplash fetch + mapping */
 async function fetchFromUnsplash(page = 1, query = ''){
-  const key = window.UNSPLASH_KEY; // defini dans config.js
+  const key = window.UNSPLASH_KEY; 
   if(!key){
     throw new Error('Cle API Unsplash manquante : definissez window.UNSPLASH_KEY dans config.js');
   }
@@ -89,12 +86,11 @@ async function fetchFromUnsplash(page = 1, query = ''){
   }));
 }
 
-/* Rendering */
+
 async function renderPage(pageToRender = 1){
   try{
     const items = await fetchFromUnsplash(pageToRender, currentQuery);
     if(pageToRender === 1 && !currentQuery){
-      // si première page d'explore on peut vider la galerie si besoin (mais original faisait append)
     }
     items.forEach(it => gallery.appendChild(createCard(it)));
   } catch(err){
@@ -116,12 +112,10 @@ function renderFavs(){
   });
 }
 
-/* Init */
 gallery.innerHTML = '';
 renderPage(page);
 renderFavs();
 
-/* events */
 loadMoreBtn?.addEventListener('click', ()=> {
   page++;
   renderPage(page);
@@ -135,7 +129,7 @@ btnFavorites?.addEventListener('click', ()=> {
 btnExplore?.addEventListener('click', ()=> {
   favoritesSection.classList.add('hidden');
   document.querySelector('.gallery-section').classList.remove('hidden');
-  // remettre le mode explore
+  
   currentQuery = '';
   gallery.innerHTML = '';
   page = 1;
